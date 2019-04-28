@@ -14,11 +14,7 @@ app.use((req, res, next)=>{
 });
 app.use('/api/v1/weather', weatherRouteHandler);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-<<<<<<< HEAD
 const PORT = process.env.PORT || 5000;
-=======
-const PORT = process.env.PORT || 5000
->>>>>>> development
 app.listen(PORT, () => {
     console.log("Server started on port 3000");
 });

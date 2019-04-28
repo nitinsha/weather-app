@@ -1,0 +1,12 @@
+{
+    "curly": true,
+    "eqeqeq": true,
+    "undef": true,
+    
+    
+    "node": true,
+    "predef": [
+      "describe",
+      "it","context","before","after","beforeEach","afterEach"
+    ]
+  }

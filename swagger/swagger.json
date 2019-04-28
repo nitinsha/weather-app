@@ -1,0 +1,123 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Weather Map Rest API doc",
+        "version": "1.0.0",
+        "title": "Weather Map Rest API doc",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "nitinrinsan@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/api/v1/weather",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/current": {
+            "get": {
+                "tags": [
+                    "Weather Module"
+                ],
+                "summary": "Fetch current weather by city name",
+                "description": "Fetch current weather by city name",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "description": "Name of city to fetch current weather report",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Weather Fetched Successfully",
+                        "schema": {
+                            "$ref": "#/definitions/FetchCurrentWeatherByCityNameResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request - Required fields not present"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/forecast": {
+            "get": {
+                "tags": [
+                    "Weather Module"
+                ],
+                "summary": "Fetch 5 Day/3 Hour forecast",
+                "description": "Fetch 5 Day/3 Hour forecast",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "description": "Name of city to fetch weather forecast",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Forecast Fetched Successfully",
+                        "schema": {
+                            "$ref": "#/definitions/FetchForecastWeatherByCityNameResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request - Required fields not present"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "FetchCurrentWeatherByCityNameResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "object"
+                }
+            }
+        },
+        "FetchForecastWeatherByCityNameResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
